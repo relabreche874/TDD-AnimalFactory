@@ -12,10 +12,32 @@ import java.util.Date;
  */
 public class DogHouseTest {
     // TODO - Create tests for `void add(Dog dog)`
+    @Test
+    public void addDogTest() {
+
+    }
     // TODO - Create tests for `void remove(Integer id)`
+    @Test
+    public void removeIntTest() {
+
+    }
     // TODO - Create tests for `void remove(Dog dog)`
+    @Test
+    public void removeDogTest() {
+
+    }
+
     // TODO - Create tests for `Dog getDogById(Integer id)`
+    @Test
+    public void getDogByIdTest() {
+
+    }
+
     // TODO - Create tests for `Integer getNumberOfDogs()`
+    @Test
+    public void getNumberofDogsTest() {
+
+    }
 
     @Test
     public void testGetNumberOfDogs() {
