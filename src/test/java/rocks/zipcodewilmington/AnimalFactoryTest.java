@@ -8,13 +8,13 @@ import org.junit.Test;
 public class AnimalFactoryTest {
     //TODO - Create Test for `Animal createDog(String name, Date birthDate)`
     @Test
-    public void createDogTest(String name, Date birthDate) {
+    public void createDogTest() {
 
     }
 
     //TODO - Create Test for `Animal createCat(String name, Date birthDate)`
     @Test
-    public void createCat(String name, Date birthDate) {
+    public void createCat() {
 
     }
 
