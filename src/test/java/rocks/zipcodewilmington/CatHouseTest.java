@@ -16,14 +16,12 @@ public class CatHouseTest {
     // TODO - Create tests for `void add(Cat cat)`
     @Test
     public void addCatTest() {
-        Date birthDate = new Date(2022 - 1900, 5, 20);
 
+        Date birthDate = new Date(2022 - 1900, 5, 20);
         //Given
         Cat cat = AnimalFactory.createCat("Mia", birthDate);
-
         //When
         CatHouse.add(cat);
-
         //Then
         Assert.assertEquals(1, (int)CatHouse.getNumberOfCats());
 
@@ -33,15 +31,13 @@ public class CatHouseTest {
     // TODO - Create tests for `void remove(Integer id)`
     @Test
     public void removeByIdTest() {
-        Date birthDate = new Date(2022 - 1900, 5, 20);
 
+        Date birthDate = new Date(2022 - 1900, 5, 20);
         //Given
         Cat cat = AnimalFactory.createCat("Mia", birthDate);
-
         //When
         CatHouse.add(cat);
         CatHouse.remove(cat.getId());
-
         //Then
         Assert.assertEquals(0, (int)CatHouse.getNumberOfCats());
 
@@ -52,15 +48,13 @@ public class CatHouseTest {
     // TODO - Create tests for `void remove(Cat cat)`
     @Test
     public void removeCat() {
-        Date birthDate = new Date(2022 - 1900, 5, 20);
 
+        Date birthDate = new Date(2022 - 1900, 5, 20);
         //Given
         Cat cat = AnimalFactory.createCat("Mia", birthDate);
-
         //When
         CatHouse.add(cat);
         CatHouse.remove(cat);
-
         //Then
         Assert.assertEquals(0, (int)CatHouse.getNumberOfCats());
 
@@ -70,17 +64,14 @@ public class CatHouseTest {
     // TODO - Create tests for `Cat getCatById(Integer id)`
     @Test
     public void getCatByIdTest() {
-        Date birthDate = new Date(2022 - 1900, 5, 20);
 
+        Date birthDate = new Date(2022 - 1900, 5, 20);
         //Given
         Cat cat = AnimalFactory.createCat("Mia", birthDate);
-
         //When
         CatHouse.add(cat);
         CatHouse.getCatById(cat.getId());
         //CatHouse.remove(CatHouse.getCatById(1));
-
-
         //Then
         Assert.assertEquals(1, (int)CatHouse.getNumberOfCats());
 
@@ -90,15 +81,13 @@ public class CatHouseTest {
     // TODO - Create tests for `Integer getNumberOfCats()`
     @Test
     public void getNumberOfCatsTest() {
-        Date birthDate = new Date(2022 - 1900, 5, 20);
 
+        Date birthDate = new Date(2022 - 1900, 5, 20);
         //Given
         Cat cat = AnimalFactory.createCat("Mia", birthDate);
-
         //When
         CatHouse.add(cat);
         //CatHouse.remove(cat);
-
         //Then
         Assert.assertEquals(1, (int)CatHouse.getNumberOfCats());
 

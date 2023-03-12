@@ -66,8 +66,19 @@ public class CatTest {
 
     // TODO - Create tests for `Integer getId()`
     @Test
-    public void getIdTest() {
+    public void catGetIdTest() {
 
+        Date birthDate = new Date(2022 - 1900, 5, 20);
+        //Given
+        Cat cat = AnimalFactory.createCat("Mia", birthDate);
+        //When
+        CatHouse.add(cat);
+        CatHouse.getCatById(cat.getId());
+
+        //Then
+        Assert.assertEquals(1, (int)CatHouse.getNumberOfCats());
+
+        DogHouse.clear();
     }
 
     // TODO - Create test to check Animal inheritance; google search `java instanceof keyword`

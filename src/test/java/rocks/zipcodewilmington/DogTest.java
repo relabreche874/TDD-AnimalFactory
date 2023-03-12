@@ -2,8 +2,10 @@ package rocks.zipcodewilmington;
 
 import org.junit.Assert;
 import org.junit.Test;
+import rocks.zipcodewilmington.animals.Cat;
 import rocks.zipcodewilmington.animals.Dog;
 import rocks.zipcodewilmington.animals.animal_creation.AnimalFactory;
+import rocks.zipcodewilmington.animals.animal_storage.CatHouse;
 import rocks.zipcodewilmington.animals.animal_storage.DogHouse;
 
 import java.util.Date;
@@ -68,6 +70,17 @@ public class DogTest {
     @Test
     public void dogGetIdTest() {
 
+        Date birthDate = new Date(2022 - 1900, 5, 20);
+        //Given
+        Dog dog = AnimalFactory.createDog("Duke", birthDate);
+        //When
+        DogHouse.add(dog);
+        DogHouse.getDogById(dog.getId());
+
+        //Then
+        Assert.assertEquals(1, (int)DogHouse.getNumberOfDogs());
+
+        DogHouse.clear();
     }
 
     // TODO - Create test to check Animal inheritance; google search `java instanceof keyword`
