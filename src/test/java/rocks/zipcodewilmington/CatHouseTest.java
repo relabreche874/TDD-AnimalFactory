@@ -5,6 +5,7 @@ import org.junit.Test;
 import rocks.zipcodewilmington.animals.Cat;
 import rocks.zipcodewilmington.animals.animal_creation.AnimalFactory;
 import rocks.zipcodewilmington.animals.animal_storage.CatHouse;
+import rocks.zipcodewilmington.animals.animal_storage.DogHouse;
 
 import java.util.Date;
 
@@ -26,11 +27,12 @@ public class CatHouseTest {
         //Then
         Assert.assertEquals(1, (int)CatHouse.getNumberOfCats());
 
+        CatHouse.clear();
     }
 
     // TODO - Create tests for `void remove(Integer id)`
     @Test
-    public void removeIntTest() {
+    public void removeByIdTest() {
         Date birthDate = new Date(2022 - 1900, 5, 20);
 
         //Given
@@ -43,6 +45,7 @@ public class CatHouseTest {
         //Then
         Assert.assertEquals(0, (int)CatHouse.getNumberOfCats());
 
+        CatHouse.clear();
     }
 
 
@@ -61,6 +64,7 @@ public class CatHouseTest {
         //Then
         Assert.assertEquals(0, (int)CatHouse.getNumberOfCats());
 
+        CatHouse.clear();
     }
 
     // TODO - Create tests for `Cat getCatById(Integer id)`
@@ -80,6 +84,7 @@ public class CatHouseTest {
         //Then
         Assert.assertEquals(1, (int)CatHouse.getNumberOfCats());
 
+        CatHouse.clear();
     }
 
     // TODO - Create tests for `Integer getNumberOfCats()`
@@ -97,7 +102,6 @@ public class CatHouseTest {
         //Then
         Assert.assertEquals(1, (int)CatHouse.getNumberOfCats());
 
-
+        CatHouse.clear();
     }
-
 }
