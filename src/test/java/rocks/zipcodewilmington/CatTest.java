@@ -2,8 +2,10 @@ package rocks.zipcodewilmington;
 
 import org.junit.Assert;
 import org.junit.Test;
+import rocks.zipcodewilmington.animals.Animal;
 import rocks.zipcodewilmington.animals.Cat;
 import rocks.zipcodewilmington.animals.Dog;
+import rocks.zipcodewilmington.animals.Mammal;
 import rocks.zipcodewilmington.animals.animal_creation.AnimalFactory;
 import rocks.zipcodewilmington.animals.animal_storage.CatHouse;
 import rocks.zipcodewilmington.animals.animal_storage.DogHouse;
@@ -24,6 +26,8 @@ public class CatTest {
         cat.setName(name);
         String catName = cat.getName();
         Assert.assertEquals(catName, name);
+
+        CatHouse.clear();
     }
     // TODO - Create tests for `speak`
     @Test
@@ -31,11 +35,11 @@ public class CatTest {
 
         Date birthDate = new Date(2022 - 1900, 5, 20);
         Cat cat = AnimalFactory.createCat("Dog", birthDate);
-        String expected = "bark!";
+        String expected = "meow!";
         String actual = cat.speak();
         Assert.assertEquals(expected, actual);
 
-        DogHouse.clear();
+        CatHouse.clear();
 
     }
     // TODO - Create tests for `setBirthDate(Date birthDate)`
@@ -50,6 +54,8 @@ public class CatTest {
         //Then
         Assert.assertEquals(birthDate, actual);
 
+        CatHouse.clear();
+
     }
     // TODO - Create tests for `void eat(Food food)`
     @Test
@@ -61,7 +67,7 @@ public class CatTest {
         Integer actual = cat.getNumberOfMealsEaten();
         Assert.assertEquals(expected, actual);
 
-        DogHouse.clear();
+        CatHouse.clear();
     }
 
     // TODO - Create tests for `Integer getId()`
@@ -78,18 +84,36 @@ public class CatTest {
         //Then
         Assert.assertEquals(1, (int)CatHouse.getNumberOfCats());
 
-        DogHouse.clear();
+        CatHouse.clear();
     }
 
     // TODO - Create test to check Animal inheritance; google search `java instanceof keyword`
     @Test
     public void animalInheritanceTest() {
 
+        Date birthDate = new Date(2022 - 1900, 5, 20);
+        //Given
+        Cat cat = AnimalFactory.createCat("Mia", birthDate);
+        boolean expected = true;
+        boolean actual =  cat instanceof Animal;
+        Assert.assertEquals(expected, actual);
+
+        CatHouse.clear();
+
     }
 
     // TODO - Create test to check Mammal inheritance; google search `java instanceof keyword`
     @Test
     public void mammalInheritanceTest() {
+
+        Date birthDate = new Date(2022 - 1900, 5, 20);
+        //Given
+        Cat cat = AnimalFactory.createCat("Mia", birthDate);
+        boolean expected = true;
+        boolean actual =  cat instanceof Mammal;
+        Assert.assertEquals(expected, actual);
+
+        CatHouse.clear();
 
     }
 
