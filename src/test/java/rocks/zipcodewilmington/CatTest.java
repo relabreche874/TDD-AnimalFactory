@@ -3,8 +3,10 @@ package rocks.zipcodewilmington;
 import org.junit.Assert;
 import org.junit.Test;
 import rocks.zipcodewilmington.animals.Cat;
+import rocks.zipcodewilmington.animals.Dog;
 import rocks.zipcodewilmington.animals.animal_creation.AnimalFactory;
 import rocks.zipcodewilmington.animals.animal_storage.CatHouse;
+import rocks.zipcodewilmington.animals.animal_storage.DogHouse;
 
 import java.util.Date;
 
@@ -15,32 +17,36 @@ public class CatTest {
     // TODO - Create tests for `void setName(String name)`
     @Test
     public void setNameTest() {
-        Cat cat = new Cat(null, null, null);
+
+        Date birthDate = new Date(2022 - 1900, 5, 20);
+        Cat cat = new Cat("Mia", birthDate, null);
         String name = "Mia";
-
         cat.setName(name);
-
         String catName = cat.getName();
         Assert.assertEquals(catName, name);
-
     }
     // TODO - Create tests for `speak`
     @Test
     public void speakTest() {
 
+        Date birthDate = new Date(2022 - 1900, 5, 20);
+        Cat cat = AnimalFactory.createCat("Dog", birthDate);
+        String expected = "bark!";
+        String actual = cat.speak();
+        Assert.assertEquals(expected, actual);
+
+        DogHouse.clear();
+
     }
     // TODO - Create tests for `setBirthDate(Date birthDate)`
     @Test
     public void setBirthdateTest() {
+
         Date birthDate = new Date(2022 - 1900, 5, 20);//Given
         Cat cat = AnimalFactory.createCat("Mia", birthDate);
-
         //When
         cat.setBirthDate(birthDate);
-
         Date actual = cat.getBirthDate();
-
-
         //Then
         Assert.assertEquals(birthDate, actual);
 
@@ -49,6 +55,13 @@ public class CatTest {
     @Test
     public void eatTest() {
 
+        Cat cat = AnimalFactory.createCat("Mia", null);
+        Integer expected = 1;
+        cat.eat(new Food());
+        Integer actual = cat.getNumberOfMealsEaten();
+        Assert.assertEquals(expected, actual);
+
+        DogHouse.clear();
     }
 
     // TODO - Create tests for `Integer getId()`
@@ -71,23 +84,20 @@ public class CatTest {
 
     @Test
     public void constructorTest() {
+
         // Given (cat data)
         String givenName = "Zula";
         Date givenBirthDate = new Date();
         Integer givenId = 0;
-
         // When (a cat is constructed)
         Cat cat = new Cat(givenName, givenBirthDate, givenId);
-
         // When (we retrieve data from the cat)
         String retrievedName = cat.getName();
         Date retrievedBirthDate = cat.getBirthDate();
         Integer retrievedId = cat.getId();
-
         // Then (we expect the given data, to match the retrieved data)
         Assert.assertEquals(givenName, retrievedName);
         Assert.assertEquals(givenBirthDate, retrievedBirthDate);
         Assert.assertEquals(givenId, retrievedId);
     }
-
 }
